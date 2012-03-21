@@ -19,13 +19,6 @@ function Animal:setHunger(hunger)
 	self.hunger = hunger
 end
 
-function Animal:isHungry()
-	if self.hunger > 50 then
-		return true
-	end
-	return false
-end
-
 function Animal:getBathroomPee()
 	return self.bathroom.pee
 end

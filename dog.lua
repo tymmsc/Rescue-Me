@@ -2,10 +2,16 @@ Dog = Core.class(Animal)
 
 function Dog:init()
 	print("I am a dog")
-	self = Bitmap.new(Texture.new("dog.png"))
-	stage:addChild(self)
+	self.view = Bitmap.new(Texture.new("dog.png"))
+	self:addChild(self.view)
 end
 
+function Dog:isHungry()
+	if self.hunger >= 50 then
+		return true
+	end
+	return false
+end
 
 -------------------------------------------------
 -- Dog:feed(amount,quality)
