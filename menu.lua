@@ -59,7 +59,7 @@ end
 --"current" is the number button it is, and "all" is the total number of buttons on the menu.
 
 menuButton = function(image1, image2, container, current, all)
-	local newButton = Button.new(image1, image2)
+	local newButton = Button.new(Bitmap.new(Texture.new(image1)), Bitmap.new(Texture.new(image2)))
 	
 	if current==0 then --then it's the exit, "X" button
 		newButton:setScale((.20*container:getWidth())/newButton:getWidth())

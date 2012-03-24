@@ -22,12 +22,11 @@ window, since it is just a sprite.
 ----------------------------------------------------
 
 function Button:init(upState, downState, name, menu)
-	self.upState = Bitmap.new(Texture.new(upState))
-	self.downState = Bitmap.new(Texture.new(downState))
+	self.upState = upState
+	self.downState = downState
 	if downState==nil then 
 		self.downState = Bitmap.new(Texture.new(upState))
 	end
-	self.downState:setColorTransform(1,.5,1,.5) --just an easy way to dim the button when clicked
 
 	self.focus = false
 	self.activated=false

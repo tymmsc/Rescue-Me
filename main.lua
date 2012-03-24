@@ -26,8 +26,9 @@ wallet:setPosition(screenWidth-wallet:getWidth(), screenHeight-wallet:getHeight(
 --Create the buttons: 
 
 -- create the up and down sprites for button
-local up = "blankbutton.png"
-local down = "blankbutton.png"
+local up = Bitmap.new(Texture.new("blankbutton.png"))
+local down = Bitmap.new(Texture.new("blankbutton.png"))
+down:setColorTransform(1,.5,1,.5) --just an easy way to dim the button when clicked
 
 -- create and add button
 local button = Button.new(up, down, "button1")
@@ -36,8 +37,10 @@ stage:addChild(button)
 
 
 --create the up and down sprites for button 2
-local up2 = "blankbutton.png"
-local down2 = "blankbutton.png"
+local up2 = Bitmap.new(Texture.new("blankbutton.png"))
+local down2 = Bitmap.new(Texture.new("blankbutton.png"))
+down:setColorTransform(1,.5,1,.5) --just an easy way to dim the button when clicked
+
 
 --create the menu that the button opens
 --first create some up and down sprites for the menu's buttons:

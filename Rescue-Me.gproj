@@ -3,45 +3,6 @@
   <imageScales/>
  </properties>
  <file source="XButton.png"/>
- <folder name="images">
-  <file source="../Documents/GameTemplate/images/start_up.png"/>
-  <file source="../Documents/GameTemplate/images/start_down.png"/>
-  <file source="../Documents/GameTemplate/images/soundson_up.png"/>
-  <file source="../Documents/GameTemplate/images/soundson_down.png"/>
-  <file source="../Documents/GameTemplate/images/soundsoff_up.png"/>
-  <file source="../Documents/GameTemplate/images/soundsoff_down.png"/>
-  <file source="../Documents/GameTemplate/images/right-up.png"/>
-  <file source="../Documents/GameTemplate/images/right-down.png"/>
-  <file source="../Documents/GameTemplate/images/resume_up.png"/>
-  <file source="../Documents/GameTemplate/images/resume_down.png"/>
-  <file source="../Documents/GameTemplate/images/reset_up.png"/>
-  <file source="../Documents/GameTemplate/images/reset_down.png"/>
-  <file source="../Documents/GameTemplate/images/pause_up.png"/>
-  <file source="../Documents/GameTemplate/images/pause_down.png"/>
-  <file source="../Documents/GameTemplate/images/packselect_up.png"/>
-  <file source="../Documents/GameTemplate/images/packselect_down.png"/>
-  <file source="../Documents/GameTemplate/images/options_up.png"/>
-  <file source="../Documents/GameTemplate/images/options_down.png"/>
-  <file source="../Documents/GameTemplate/images/next_up.png"/>
-  <file source="../Documents/GameTemplate/images/next_down.png"/>
-  <file source="../Documents/GameTemplate/images/musicon_up.png"/>
-  <file source="../Documents/GameTemplate/images/musicon_down.png"/>
-  <file source="../Documents/GameTemplate/images/musicoff_up.png"/>
-  <file source="../Documents/GameTemplate/images/musicoff_down.png"/>
-  <file source="../Documents/GameTemplate/images/menu_up.png"/>
-  <file source="../Documents/GameTemplate/images/menu_down.png"/>
-  <file source="../Documents/GameTemplate/images/levelselect_up.png"/>
-  <file source="../Documents/GameTemplate/images/levelselect_down.png"/>
-  <file source="../Documents/GameTemplate/images/left-up.png"/>
-  <file source="../Documents/GameTemplate/images/left-down.png"/>
-  <file source="../Documents/GameTemplate/images/help_up.png"/>
-  <file source="../Documents/GameTemplate/images/help_down.png"/>
-  <file source="../Documents/GameTemplate/images/gideros_mobile.png"/>
-  <file source="../Documents/GameTemplate/images/crate_locked.png"/>
-  <file source="../Documents/GameTemplate/images/crate.png"/>
-  <file source="../Documents/GameTemplate/images/back_up.png"/>
-  <file source="../Documents/GameTemplate/images/back_down.png"/>
- </folder>
  <file source="menu.lua"/>
  <file source="blankbutton.png"/>
  <file source="../Documents/GameTemplate/images/button_down.png"/>
