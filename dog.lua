@@ -4,6 +4,10 @@ function Dog:init()
 	print("I am a dog")
 	self.view = Bitmap.new(Texture.new("dog.png"))
 	self:addChild(self.view)
+	
+	--add event listener for clicking on dog
+	self:addEventListener(Event.MOUSE_DOWN, self.onMouseDown, self)
+
 end
 
 function Dog:isHungry()
@@ -46,3 +50,17 @@ function Dog:walk()
 		self.bathroom.poop = self.bathroom.poop - 50
 	end
 end
+
+-------------------------------------------------
+--Dog:onMouseDown
+--This function occurs when the dog is clicked
+--Currently it just prints a message saying so.
+-------------------------------------------------
+function Dog:onMouseDown(event)
+	if self:hitTestPoint(event.x, event.y) then
+
+		print ("You clicked the dog.")
+		
+	end
+end
+

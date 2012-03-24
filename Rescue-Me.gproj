@@ -2,16 +2,64 @@
  <properties autorotation="0" fps="60" scaleMode="0" iosDevice="0" xcodeVersion="0" packageName="com.yourdomain.yourapp" logicalHeight="480" logicalWidth="320" retinaDisplay="0" assetsOnly="0" orientation="0" architecture="0">
   <imageScales/>
  </properties>
+ <file source="XButton.png"/>
+ <folder name="images">
+  <file source="../Documents/GameTemplate/images/start_up.png"/>
+  <file source="../Documents/GameTemplate/images/start_down.png"/>
+  <file source="../Documents/GameTemplate/images/soundson_up.png"/>
+  <file source="../Documents/GameTemplate/images/soundson_down.png"/>
+  <file source="../Documents/GameTemplate/images/soundsoff_up.png"/>
+  <file source="../Documents/GameTemplate/images/soundsoff_down.png"/>
+  <file source="../Documents/GameTemplate/images/right-up.png"/>
+  <file source="../Documents/GameTemplate/images/right-down.png"/>
+  <file source="../Documents/GameTemplate/images/resume_up.png"/>
+  <file source="../Documents/GameTemplate/images/resume_down.png"/>
+  <file source="../Documents/GameTemplate/images/reset_up.png"/>
+  <file source="../Documents/GameTemplate/images/reset_down.png"/>
+  <file source="../Documents/GameTemplate/images/pause_up.png"/>
+  <file source="../Documents/GameTemplate/images/pause_down.png"/>
+  <file source="../Documents/GameTemplate/images/packselect_up.png"/>
+  <file source="../Documents/GameTemplate/images/packselect_down.png"/>
+  <file source="../Documents/GameTemplate/images/options_up.png"/>
+  <file source="../Documents/GameTemplate/images/options_down.png"/>
+  <file source="../Documents/GameTemplate/images/next_up.png"/>
+  <file source="../Documents/GameTemplate/images/next_down.png"/>
+  <file source="../Documents/GameTemplate/images/musicon_up.png"/>
+  <file source="../Documents/GameTemplate/images/musicon_down.png"/>
+  <file source="../Documents/GameTemplate/images/musicoff_up.png"/>
+  <file source="../Documents/GameTemplate/images/musicoff_down.png"/>
+  <file source="../Documents/GameTemplate/images/menu_up.png"/>
+  <file source="../Documents/GameTemplate/images/menu_down.png"/>
+  <file source="../Documents/GameTemplate/images/levelselect_up.png"/>
+  <file source="../Documents/GameTemplate/images/levelselect_down.png"/>
+  <file source="../Documents/GameTemplate/images/left-up.png"/>
+  <file source="../Documents/GameTemplate/images/left-down.png"/>
+  <file source="../Documents/GameTemplate/images/help_up.png"/>
+  <file source="../Documents/GameTemplate/images/help_down.png"/>
+  <file source="../Documents/GameTemplate/images/gideros_mobile.png"/>
+  <file source="../Documents/GameTemplate/images/crate_locked.png"/>
+  <file source="../Documents/GameTemplate/images/crate.png"/>
+  <file source="../Documents/GameTemplate/images/back_up.png"/>
+  <file source="../Documents/GameTemplate/images/back_down.png"/>
+ </folder>
  <file source="menu.lua"/>
  <file source="blankbutton.png"/>
- <file source="button.lua"/>
+ <file source="../Documents/GameTemplate/images/button_down.png"/>
+ <file source="../Documents/GameTemplate/images/button_up.png"/>
  <file source="wallet.lua"/>
+ <file source="button.lua"/>
  <file source="Rescue-Me.gproj"/>
  <file source="README"/>
  <file source="main.lua"/>
  <file source="grass.png"/>
+ <file source="mainScreen.lua"/>
  <file source="dog.png"/>
  <file source="dog.lua"/>
  <file source="cat.lua"/>
  <file source="animal.lua"/>
+ <dependency from="main.lua" to="wallet.lua"/>
+ <dependency from="main.lua" to="button.lua"/>
+ <dependency from="main.lua" to="dog.lua"/>
+ <dependency from="main.lua" to="cat.lua"/>
+ <dependency from="main.lua" to="animal.lua"/>
 </project>

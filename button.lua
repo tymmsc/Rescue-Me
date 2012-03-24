@@ -1,3 +1,5 @@
+--This is a button class modified from code in an open-source Gideros example, GameTemplate
+
 --[[
 A generic button class
 
@@ -7,15 +9,35 @@ This code is MIT licensed, see http://www.opensource.org/licenses/mit-license.ph
 
 Button = Core.class(Sprite)
 
-function Button:init(upState, downState)
-	self.upState = upState
-	self.downState = downState
-		
-	self.focus = false
 
+---------------------------------------------------
+--[[
+Button takes in an upState bitmap image, downState 
+bitmap image, string name, and menu object. 
+The menu is what opens when the button is clicked. 
+If no menu is given then the button does nothing.
+In the future, "menu" can be substituted for any opened
+window, since it is just a sprite. 
+]]
+----------------------------------------------------
+
+function Button:init(upState, downState, name, menu)
+	self.upState = Bitmap.new(Texture.new(upState))
+	self.downState = Bitmap.new(Texture.new(downState))
+	if downState==nil then 
+		self.downState = Bitmap.new(Texture.new(upState))
+	end
+	self.downState:setColorTransform(1,.5,1,.5) --just an easy way to dim the button when clicked
+
+	self.focus = false
+	self.activated=false
 	-- set the visual state as "up"
 	self:updateVisualState(false)
-
+	self.name=name
+	if not(menu==nil) then
+		self.menu=menu
+	end
+	
 	-- register to all mouse and touch events
 	self:addEventListener(Event.MOUSE_DOWN, self.onMouseDown, self)
 	self:addEventListener(Event.MOUSE_MOVE, self.onMouseMove, self)
@@ -27,18 +49,23 @@ function Button:init(upState, downState)
 	self:addEventListener(Event.TOUCHES_CANCEL, self.onTouchesCancel, self)
 end
 
-function Button:init(upState, downState, menu)
-	self:init(upState, downState)
+function Button:addMenu(menu)
+	self.hasMenu=true
 	self.menu=menu
-	
 end
 	
-	
+--When the button is clicked, a message prints and the menu, if present, opens. 
+--The clicked button also takes on the image of downState when it is clicked.
+
 function Button:onMouseDown(event)
 	if self:hitTestPoint(event.x, event.y) then
+		print("Button clicked.")
 		self.focus = true
 		self:updateVisualState(true)
-		stage:addChild(menu)
+		if not(self.menu==nil) then
+			menu:display()
+		
+		end
 		event:stopPropagation()
 	end
 end
@@ -53,6 +80,8 @@ function Button:onMouseMove(event)
 	end
 end
 
+
+--When a click is over, the button switches back to the upState image
 function Button:onMouseUp(event)
 	if self.focus then
 		self.focus = false
@@ -92,7 +121,10 @@ function Button:onTouchesCancel(event)
 	end
 end
 
--- if state is true show downState else show upState
+
+--this function is used to switch between upState and downState
+-- if 'state' is true show downState else show upState
+
 function Button:updateVisualState(state)
 	if state then
 		if self:contains(self.upState) then
