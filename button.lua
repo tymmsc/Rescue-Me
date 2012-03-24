@@ -13,15 +13,15 @@ Button = Core.class(Sprite)
 ---------------------------------------------------
 --[[
 Button takes in an upState bitmap image, downState 
-bitmap image, string name, and menu object. 
-The menu is what opens when the button is clicked. 
-If no menu is given then the button does nothing.
+bitmap image, string ID, and sprite object. 
+The sprite is what opens when the button is clicked. 
+If no sprite is given then the button does nothing.
 In the future, "menu" can be substituted for any opened
 window, since it is just a sprite. 
 ]]
 ----------------------------------------------------
 
-function Button:init(upState, downState, name, menu)
+function Button:init(upState, downState, ID, sprite)
 	self.upState = upState
 	self.downState = downState
 	if downState==nil then 
@@ -33,13 +33,13 @@ function Button:init(upState, downState, name, menu)
 	-- set the visual state as "up"
 	self:updateVisualState(false)
 	self.name=name
-	if not(menu==nil) then
-		self.menu=menu
+	if not(sprite==nil) then
+		self.sprite=sprite
 	end
 	
 	-- register to all mouse and touch events
 	self:addEventListener(Event.MOUSE_DOWN, self.onMouseDown, self)
-	self:addEventListener(Event.MOUSE_MOVE, self.onMouseMove, self)
+
 	self:addEventListener(Event.MOUSE_UP, self.onMouseUp, self)
 
 	self:addEventListener(Event.TOUCHES_BEGIN, self.onTouchesBegin, self)
@@ -53,31 +53,24 @@ function Button:addMenu(menu)
 	self.menu=menu
 end
 	
---When the button is clicked, a message prints and the menu, if present, opens. 
+--When the button is clicked, a message prints and the sprite, if present, opens. 
 --The clicked button also takes on the image of downState when it is clicked.
 
 function Button:onMouseDown(event)
 	if self:hitTestPoint(event.x, event.y) then
-		print("Button clicked.")
+		print("Button ", id, " clicked.")
 		self.focus = true
 		self:updateVisualState(true)
-		if not(self.menu==nil) then
-			menu:display()
+		if not(self.sprite==nil) then
+			stage:addChild(self.sprite)
+			scrollLocked=true
 		
 		end
 		event:stopPropagation()
 	end
 end
 
-function Button:onMouseMove(event)
-	if self.focus then
-		if not self:hitTestPoint(event.x, event.y) then	
-			self.focus = false
-			self:updateVisualState(false)
-		end
-		event:stopPropagation()
-	end
-end
+
 
 
 --When a click is over, the button switches back to the upState image
