@@ -4,9 +4,9 @@
 Menu=Core.class(Sprite)
 
 
---In the future it will take in an array of button images that will appear on the menu. 
+--In the future it will take in an array of buttons that will appear on the menu. 
 
-function Menu:init(buttonImages)
+function Menu:init(buttons)
 	screenHeight = application:getDeviceWidth()
 	screenWidth = application:getDeviceHeight()
 	
@@ -22,20 +22,21 @@ function Menu:init(buttonImages)
 	menu:lineTo(screenWidth/5, screenHeight/16)
 	menu:endPath()	
 	--add the array of buttons
-	if not (buttonImages==nil) then
-		size = #buttonImages --The "#" sign followed by a table (ie array) gives the table's size (assuming normal indices)
+	if not (buttons==nil) then
+		size = #buttons --The "#" sign followed by a table (ie array) gives the table's size (assuming normal indices)
 		
-		for i=1,size,2 do
-			menu:addChild(menuButton(buttonImages[i], buttonImages[i+1],menu, (i+1)/2, size/2))
+		for i=1,size do
+			menu:addChild(menuButton(buttons[i] ,menu, i, size))
 			
 		end
 	end
 
 	--adds a universal "X" button on all menus. When clicked it exits the menu.
 	XDown = Bitmap.new(Texture.new("XButton.png"))
-	XDown:setColorTransform(.1,.1,.1,1)
-	local exitButton = menuButton("XButton.png","XButton.png", menu, 0, 4)
-	menu:addChild(exitButton)
+	XDown:setColorTransform(1,.1,.1,.6)
+	local exitButton = Button.new(Bitmap.new(Texture.new("XButton.png")),xDown, "Exit Button")
+	exitMenuButton = menuButton(exitButton, menu, 0 , 2)
+	menu:addChild(exitMenuButton)
 	exitButton:addEventListener("click", 
 		function()	
 			stage:removeChild(self)
@@ -58,8 +59,7 @@ end
 --This is the basic function that creates a menuButton, a button for a menu. 
 --"current" is the number button it is, and "all" is the total number of buttons on the menu.
 
-menuButton = function(image1, image2, container, current, all)
-	local newButton = Button.new(Bitmap.new(Texture.new(image1)), Bitmap.new(Texture.new(image2)))
+menuButton = function(newButton, container, current, all)
 	
 	if current==0 then --then it's the exit, "X" button
 		newButton:setScale((.20*container:getWidth())/newButton:getWidth())

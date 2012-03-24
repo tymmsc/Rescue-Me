@@ -15,19 +15,24 @@ Button = Core.class(Sprite)
 Button takes in an upState bitmap image, downState 
 bitmap image, string ID, and sprite object. 
 The sprite is what opens when the button is clicked. 
-If no sprite is given then the button does nothing.
-In the future, "menu" can be substituted for any opened
-window, since it is just a sprite. 
+If no sprite is given then the button does nothing,
+except it changes its appearance to downState while clicked. 
 ]]
 ----------------------------------------------------
 
 function Button:init(upState, downState, ID, sprite)
+	self.ID=ID
 	self.upState = upState
 	self.downState = downState
-	if downState==nil then 
-		self.downState = Bitmap.new(Texture.new(upState))
+	if type(self.upState)=="string" then
+		self.upState = Bitmap.new(Texture.new(upState))
 	end
-
+	if type(self.downState)=="string" then
+		self.downState = Bitmap.new(Texture.new(downState))
+	end
+	if self.downState==nil then
+		self.downState = self.upState 
+	end
 	self.focus = false
 	self.activated=false
 	-- set the visual state as "up"
@@ -58,7 +63,7 @@ end
 
 function Button:onMouseDown(event)
 	if self:hitTestPoint(event.x, event.y) then
-		print("Button ", id, " clicked.")
+		print("Button ", self.ID, " clicked.")
 		self.focus = true
 		self:updateVisualState(true)
 		if not(self.sprite==nil) then

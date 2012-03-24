@@ -39,7 +39,7 @@ stage:addChild(button)
 --create the up and down sprites for button 2
 local up2 = Bitmap.new(Texture.new("blankbutton.png"))
 local down2 = Bitmap.new(Texture.new("blankbutton.png"))
-down:setColorTransform(1,.5,1,.5) --just an easy way to dim the button when clicked
+down2:setColorTransform(1,.5,1,.5) --just an easy way to dim the button when clicked
 
 
 --create the menu that the button opens
@@ -48,7 +48,7 @@ menuUp1 = "button_up.png"
 menuDown1="button_down.png"
 menuUp2 = "button_up.png"
 menuDown2 = "button_down.png"
-buttons = {menuUp1, menuDown1, menuUp2, menuDown2}
+buttons = {Button.new(menuUp1, menuDown1), Button.new(menuUp2, menuDown2)}
 
 
 menu=Menu.new(buttons)
