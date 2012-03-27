@@ -21,6 +21,8 @@ except it changes its appearance to downState while clicked.
 ----------------------------------------------------
 
 function Button:init(upState, downState, ID, sprite)
+	self.width = 32
+	self.height = 32
 	self.ID=ID
 	self.upState = upState
 	self.downState = downState
@@ -32,6 +34,7 @@ function Button:init(upState, downState, ID, sprite)
 	end
 	if self.downState==nil then
 		self.downState = self.upState 
+		self.downState:setColorTransform(1,.5,1.,5)
 	end
 	self.focus = false
 	self.activated=false
@@ -63,7 +66,7 @@ end
 
 function Button:onMouseDown(event)
 	if self:hitTestPoint(event.x, event.y) then
-		print("Button ", self.ID, " clicked.")
+		print("Button ", self.ID, "clicked.")
 		self.focus = true
 		self:updateVisualState(true)
 		if not(self.sprite==nil) then
