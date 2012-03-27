@@ -69,9 +69,9 @@ widgets:newWidget("statistics")
 widgets:newWidget("settings")
 stage:addChild(widgets)
 local w = widgets.animalWidget.width
-widgets.animalWidget.view:setPosition(W/10-w/2,H-widgets.animalWidget.height)
+widgets.animalWidget:setPosition(W/10-w/2,H-widgets.animalWidget.height)
 widgets.shopWidget:setPosition(3*W/10-w/2,H-widgets.shopWidget.height)
-widgets.miniGamesWidget.view:setPosition(W/2-w/2,H-widgets.miniGamesWidget.height)
-widgets.statisticsWidget.view:setPosition(7*W/10-w/2,H-widgets.statisticsWidget.height)
-widgets.settingsWidget.view:setPosition(9*W/10-w/2,H-widgets.settingsWidget.height)
+widgets.miniGamesWidget:setPosition(W/2-w/2,H-widgets.miniGamesWidget.height)
+widgets.statisticsWidget:setPosition(7*W/10-w/2,H-widgets.statisticsWidget.height)
+widgets.settingsWidget:setPosition(9*W/10-w/2,H-widgets.settingsWidget.height)
 
